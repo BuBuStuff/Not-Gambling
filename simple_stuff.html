@@ -1,0 +1,41 @@
+<html>
+	<head>
+		
+		<style>
+			body {
+				background-color: RGB(58, 54, 54);
+				font-family: futura-pt, sans-serif;
+				color: white;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Not Gambling</h1>
+		<button onclick="alert('run');roll('Red', '14', 'colors');">Roll</button>
+
+		<script>
+			var colors = {"Red", "Yellow", "Green", "Blue"}
+			
+			function getRandomItem(arr) {
+				const randomIndex = Math.floor(Math.random() * arr.length);
+				const randomItem = arr[randomIndex];
+				return randomItem;
+			}
+
+			function roll(bet, amount, table) {
+				alert("Run roll()");
+				if (confirm("You bet on " + bet + ". Confirm your choice?")) {
+					var winner = getRandomItem(window[table]);
+					setTimeout(function() {
+						if (winner == bet) {
+							alert("You won! The winner was " + winner + " and you bet $" + amount + " on " + bet + ".");
+						} else {
+							alert("You lost! The winner was " + winner + " and you bet $" + amount + " on " + bet + ".");
+						}
+					}, 1440);
+				}
+			}
+		</script>
+	</body>
+</html>
